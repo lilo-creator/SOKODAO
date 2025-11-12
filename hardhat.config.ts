@@ -1,8 +1,14 @@
 import hardhatToolboxViemPlugin from "@nomicfoundation/hardhat-toolbox-viem";
 import { configVariable, defineConfig } from "hardhat/config";
 
+import hardhatVerify from "@nomicfoundation/hardhat-verify";
+import hardhatViem from "@nomicfoundation/hardhat-viem";
+
+import * as dotenv from "dotenv";
+
+dotenv.config(); // load .env variables
 export default defineConfig({
-  plugins: [hardhatToolboxViemPlugin],
+ plugins: [hardhatVerify, hardhatViem, hardhatToolboxViemPlugin],
   solidity: {
     profiles: {
       default: {
@@ -32,7 +38,12 @@ export default defineConfig({
       type: "http",
       chainType: "l1",
       url: configVariable("SEPOLIA_RPC_URL"),
-      accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
+      accounts: [configVariable("PRIVATE_KEY")],
+    },
+  },
+verify: {
+    etherscan: {
+      apiKey: configVariable("ETHERSCAN_API_KEY") || "",
     },
   },
 });

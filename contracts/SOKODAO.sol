@@ -158,13 +158,13 @@ contract SOKODAO {
     }
     
    
-    function getTotalProducts() external view returns (uint256) {
+    function getTotalnumberofProducts() external view returns (uint256) {
         return productCounter;
     }
     
 
-    function _reduceStock(uint256 _productId, uint256 _quantity) 
-        internal 
+    function reduceStock(uint256 _productId, uint256 _quantity) 
+        external 
         validProduct(_productId) 
     {
         Product storage product = products[_productId];
