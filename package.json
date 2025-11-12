@@ -1,0 +1,22 @@
+
+{
+  "name": "sokodao",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "node": "npx hardhat node",
+    "deploy": "npx hardhat ignition deploy ./ignition/modules/deploy.js"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ignition": "^3.0.5",
+    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.1",
+    "@types/node": "^22.19.0",
+    "hardhat": "^3.0.12",
+    "typescript": "~5.8.0",
+    "viem": "^2.38.6"
+  }
+}
+
